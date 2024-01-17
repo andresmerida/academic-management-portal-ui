@@ -1,1 +1,0 @@
-# academic-management-portal-ui
