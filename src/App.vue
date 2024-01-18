@@ -1,23 +1,30 @@
 <script setup>
 import { RouterLink, RouterView } from 'vue-router'
 import HelloWorld from './components/HelloWorld.vue'
+import Navbar from "@/components/Navbar.vue";
+
 </script>
 
 <template>
-  <header>
-    <img alt="Vue logo" class="logo" src="@/assets/logo.svg" width="125" height="125" />
+  <v-app>
 
-    <div class="wrapper">
-      <HelloWorld msg="You did it!" />
+  <v-parallax
+      dark
+      src="https://cdn.vuetifyjs.com/images/backgrounds/vbanner.jpg"
+  >
+    <v-layout
+        align-center
+        column
+        justify-center
+    >
+      <Navbar />
+      <RouterView />
+    </v-layout>
+  </v-parallax>
 
-      <nav>
-        <RouterLink to="/">Home</RouterLink>
-        <RouterLink to="/about">About</RouterLink>
-      </nav>
-    </div>
-  </header>
 
-  <RouterView />
+
+  </v-app>
 </template>
 
 <style scoped>
