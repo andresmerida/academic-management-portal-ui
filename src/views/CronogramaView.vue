@@ -1,6 +1,9 @@
 <template>
   <v-main>
     <v-container >
+      <p class="font-weight-regular text-center text-white text-h4 text-uppercase">
+        Cronograma
+      </p>
       <v-row dense>
         <v-col
             v-for="n in 4"
@@ -8,7 +11,7 @@
             cols="12"
         >
           <v-card
-              :title="`Investigación ${n}`"
+              :title="`Cronograma ${n}`"
               :subtitle="`Subtitle for Content ${n}`"
               text="Lorem ipsum dolor sit amet consectetur, adipisicing elit.?"
           ></v-card>

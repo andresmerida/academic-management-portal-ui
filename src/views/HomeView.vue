@@ -1,154 +1,79 @@
 <script>
 import TheWelcome from '../components/TheWelcome.vue'
+import imgUmss from '@/img/umss.jpg'
+import imgFcyt from '@/img/fcyt3.jpg'
+import imgGestion from '@/img/img_gestion.png'
+export default {
+  data () {
+    return {
+      items: [
+        {
+          src: imgGestion,
+        },
+        {
+          src: imgUmss,
+        },
+        {
+          src: imgFcyt,
+        },
+      ],
+      title_items:[
+          {
+            title:'Gestión de Cursos y Asignatura',text:'Proporciona información detallada sobre cada curso, incluyendo descripciones, requisitos y materiales asociados.',
+            icon:'mdi mdi-book-multiple'
+          },
+          {
+            title:'Registro y Consulta de Calificaciones',text:'Permite a los estudientes acceder a sus calificiaciones de forma rapida y sencilla. Facilita a los  docentes el proceso de ingreso y actualizacion de notas.',
+            icon:'mdi mdi-file-document-outline'
+          },
+          {
+            title:'Gestión de Usuario y Comunicación', text: 'Permite la creación y gestión de perfiles para docentes, estudiantes y personal administrativo. Proporciona un sistemade notificaciones para informar sobre eventos, plazos y novedades.',
+            icon:'mdi mdi-account-group'
+          },
+      ],
+
+    }
+  },
+}
 </script>
 
 <template>
   <v-main>
     <v-container>
-
-
-      <v-carousel show-arrows="show-arrows">
+      <v-carousel hide-delimiter-background show-arrows="hover">
         <v-carousel-item
-            src="https://scontent.flpb1-1.fna.fbcdn.net/v/t39.30808-6/415241903_398335696088338_5420489845999840984_n.jpg?_nc_cat=105&ccb=1-7&_nc_sid=dd5e9f&_nc_ohc=5-J_AerTSOIAX_g32Bm&_nc_ht=scontent.flpb1-1.fna&oh=00_AfCdj6Y-p1pL5seliLL32MjoKF-OntmBduLiCxbiFES0lg&oe=65AE2DB6"
-            cover
-        >
-          <v-card
-              class="mx-10 my-10"
-              max-width="344"
-              elevation="16"
-          >
-            <v-card-item>
-              <v-card-title>
-                Universidad
-              </v-card-title>
-              <v-card-subtitle>
-                Card subtitle secondary text
-              </v-card-subtitle>
-            </v-card-item>
+            v-for="(item,i) in items"
+            :key="i"
+            :src="item.src"
 
-            <v-card-text>
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-            </v-card-text>
-          </v-card>
-        </v-carousel-item>
-
-        <v-carousel-item
-            src="https://scontent.flpb1-2.fna.fbcdn.net/v/t1.6435-9/48397648_2029828620429900_7187556958730190848_n.jpg?_nc_cat=102&ccb=1-7&_nc_sid=300f58&_nc_ohc=57U7ZN5v89oAX_gcn_d&_nc_ht=scontent.flpb1-2.fna&oh=00_AfANb555PBsmhzrC3uN5VTtPXsnpO1NwvubwORvqyWvYrQ&oe=65CFD759"
-            cover
-        >
-          <v-card
-              class="mx-10 my-10"
-              max-width="344"
-              elevation="16"
-          >
-            <v-card-item>
-              <v-card-title>
-                Facultad de Ciencias y Tecnología
-              </v-card-title>
-              <v-card-subtitle>
-                Card subtitle secondary text
-              </v-card-subtitle>
-            </v-card-item>
-
-            <v-card-text>
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-            </v-card-text>
-          </v-card>
-        </v-carousel-item>
-
-        <v-carousel-item
-            src="https://aygun.com.bo/wp-content/uploads/2022/08/universidad_aygun-1024x585.jpg"
-            cover
-        >
-          <v-card
-              class="mx-10 my-10"
-              max-width="344"
-              elevation="16"
-          >
-            <v-card-item>
-              <v-card-title>
-                Rectorado UMSS
-              </v-card-title>
-              <v-card-subtitle>
-                Card subtitle secondary text
-              </v-card-subtitle>
-            </v-card-item>
-
-            <v-card-text>
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-            </v-card-text>
-          </v-card>
-        </v-carousel-item>
+        ></v-carousel-item>
       </v-carousel>
-
-      <div>
+      <div  class="my-15">
         <v-row align="center" justify="center">
-          <v-card
-              class="mx-auto"
-              max-width="344"
+          <v-col
+              v-for="(title_item, i) in title_items"
+              :key="i"
+              cols="auto"
           >
-            <v-card-item>
-              <div>
-                <div class="text-overline mb-1">
-                  test1
+            <v-card
+                class="mx-1"
+                max-width="380"
+                min-height="200"
+                variant="elevated"
+            >
+              <v-card-item>
+                <div>
+                  <div class="text-center mt-2">
+                    <v-icon :icon=title_item.icon size="x-large" color="#1867c0"></v-icon>
+                  </div>
+                  <div class="text-subtitle-1 mb-1 font-weight-bold text-center mt-5">
+                    {{ title_item.title }}
+                  </div>
+                  <div class="text-caption mx-5 text-justify">{{ title_item.text }}</div>
                 </div>
-                <div class="text-h6 mb-1">
-                  Headline
-                </div>
-                <div class="text-caption">Greyhound divisely hello coldly fonwderfully</div>
-              </div>
-            </v-card-item>
-
-            <v-card-actions>
-              <v-btn>
-                Button
-              </v-btn>
-            </v-card-actions>
-          </v-card>
-          <v-card
-              class="mx-auto"
-              max-width="344"
-          >
-            <v-card-item>
-              <div>
-                <div class="text-overline mb-1">
-                  test2
-                </div>
-                <div class="text-h6 mb-1">
-                  Headline
-                </div>
-                <div class="text-caption">Greyhound divisely hello coldly fonwderfully</div>
-              </div>
-            </v-card-item>
-
-            <v-card-actions>
-              <v-btn>
-                Button
-              </v-btn>
-            </v-card-actions>
-          </v-card>
-          <v-card
-              class="mx-auto"
-              max-width="344"
-          >
-            <v-card-item>
-              <div>
-                <div class="text-overline mb-1">
-                  test3
-                </div>
-                <div class="text-h6 mb-1">
-                  Headline
-                </div>
-                <div class="text-caption">Greyhound divisely hello coldly fonwderfully</div>
-              </div>
-            </v-card-item>
-
-            <v-card-actions>
-              <v-btn>
-                Button
-              </v-btn>
-            </v-card-actions>
-          </v-card>
+              </v-card-item>
+            </v-card>
+          </v-col>
         </v-row>
       </div>
     </v-container>

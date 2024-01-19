@@ -7,16 +7,15 @@ export default {
   data: () => ({
     logoURL:logoURL,
     items: [
-      { title: 'FAC. CIENCIAS ARGRICOLAS' },
-      { title: 'FAC. CIENCIAS ECONOMICAS' },
-      { title: 'FAC. ODONTOLOGIA' },
-      { title: 'FAC. ARQUITECTURA Y CIENCIAS DEL HA' },
-      { title: 'FAC. CIENCIAS Y TECNOLOGIA' },
+      { title: 'FAC. CIENCIAS ECONOMICAS', carrera:['Ingeniería Comercial', 'Ingeniería Financiera' ] },
+      { title: 'FAC. MEDICINA' , carrera:['Licenciatura en Medicina', 'Licenciatura en Fisioterapia y kinesiología' ] },
+      { title: 'FAC. ARQUITECTURA Y CIENCIAS DEL HA' , carrera:['Licenciatura en Diseño', 'Licenciatura en Arquitectura' ] },
+      { title: 'FAC. CIENCIAS Y TECNOLOGIA' , carrera:['Ingenieria de Sistemas', 'Ingenieria Informatica' ] },
     ],
     users:[
-      {rol:'ADMIN'},
-      {rol:'ESTUDIANTE'},
-      {rol:'DOCENTE'}
+      {rol:'admin'},
+      {rol:'estudiante'},
+      {rol:'docente'}
     ]
   }),
 }
@@ -34,7 +33,7 @@ export default {
           ></v-img>
         </v-app-bar-title>
 
-        <v-btn flat to="/">
+        <v-btn flat to="/" variant="plain">
           <span>INICIO</span>
         </v-btn>
 
@@ -43,9 +42,10 @@ export default {
         >
           <template v-slot:activator="{ props }">
             <v-btn
-                color="primary"
                 v-bind="props"
                 class="ml-2"
+                to="/facultades"
+                variant="plain"
             >
               FACULTADES
             </v-btn>
@@ -56,25 +56,35 @@ export default {
                 :key="index"
             >
               <v-list-item-title>
-                {{ item.title }}
+                <spin class="font-weight-bold">{{ item.title }}</spin>
+
+                <v-list-item-media v-for="(carrera, i) in item.carrera" :key="i">
+                  <v-btn variant="plain" to='/'>
+                  {{ carrera }}
+                  </v-btn>
+                </v-list-item-media>
+
 
               </v-list-item-title>
             </v-list-item>
           </v-list>
         </v-menu>
-
-        <v-btn flat to="/investigacion" class="ml-2">
+        <v-btn flat to="/admision" class="ml-2" variant="plain">
+          <span>ADMISIÓN</span>
+        </v-btn>
+        <v-btn flat to="/cronograma" class="ml-2" variant="plain">
+          <span>CRONOGRAMA</span>
+        </v-btn>
+        <v-btn flat href="https://web.dicyt.umss.edu.bo/" class="ml-2" variant="plain">
           <span>INVESTIGACIÓN</span>
         </v-btn>
 
-        <v-btn flat to="/admision" class="ml-2">
-          <span>ADMISIÓN</span>
-        </v-btn>
 
-        <v-btn flat to="/bibloteca" class="ml-2">
+
+        <v-btn flat href="http://bibliotecas.umss.edu.bo/site/php/index.php" class="ml-2" variant="plain">
           <span>BIBLIOTECA</span>
         </v-btn>
-        <v-btn flat class="ml-2">
+        <v-btn flat href="https://www.umss.edu.bo/tiempo-universitario/" class="ml-2" variant="plain">
           <span>NOTICIAS</span>
         </v-btn>
 
@@ -98,16 +108,11 @@ export default {
                 :key="index"
             >
               <v-list-item-title>
-                {{ user.rol }}
-
+                <v-btn variant="plain" :to="'/'+ user.rol">{{ user.rol }}</v-btn>
               </v-list-item-title>
             </v-list-item>
           </v-list>
         </v-menu>
-
-    <v-btn icon>
-      <v-icon>mdi-dots-vertical</v-icon>
-    </v-btn>
   </v-app-bar>
 
 

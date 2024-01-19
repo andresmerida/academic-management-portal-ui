@@ -1,29 +1,26 @@
 <script setup>
 import { RouterLink, RouterView } from 'vue-router'
-import HelloWorld from './components/HelloWorld.vue'
 import Navbar from "@/components/Navbar.vue";
+import blue from "@/img/fondo.png"
 
+const fondo = blue;
 </script>
 
 <template>
   <v-app>
-
-  <v-parallax
-      dark
-      src="https://cdn.vuetifyjs.com/images/backgrounds/vbanner.jpg"
-  >
-    <v-layout
-        align-center
-        column
-        justify-center
+    <v-parallax
+        dark
+        :src="fondo"
     >
-      <Navbar />
-      <RouterView />
-    </v-layout>
-  </v-parallax>
-
-
-
+      <v-layout
+          align-center
+          column
+          justify-center
+      >
+        <Navbar />
+        <RouterView />
+      </v-layout>
+    </v-parallax>
   </v-app>
 </template>
 
