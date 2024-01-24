@@ -1,8 +1,18 @@
 <script>
 import {RouterLink} from "vue-router";
 import  logoURL from "@/img/Logo_umss.png"
+import {bg} from "vuetify/locale";
+import {grey} from "vuetify/util/colors";
 
 export default {
+  computed: {
+    grey() {
+      return grey
+    },
+    bg() {
+      return bg
+    }
+  },
   components: {RouterLink},
   data: () => ({
     logoURL:logoURL,
@@ -23,7 +33,7 @@ export default {
 
 <template>
 
-  <v-app-bar :elevation="6" nav height="100">
+  <v-app-bar :elevation="10" nav height="100" >
         <v-app-bar-title class="ml-2" >
           <v-img
               :src="logoURL"
@@ -33,7 +43,7 @@ export default {
           ></v-img>
         </v-app-bar-title>
 
-        <v-btn flat to="/" variant="plain">
+        <v-btn flat to="/" variant="plain" >
           <span>INICIO</span>
         </v-btn>
 
@@ -69,10 +79,10 @@ export default {
             </v-list-item>
           </v-list>
         </v-menu>
-        <v-btn flat to="/admision" class="ml-2" variant="plain">
+        <v-btn flat to="/admision" class="ml-2" variant="plain" >
           <span>ADMISIÓN</span>
         </v-btn>
-        <v-btn flat to="/cronograma" class="ml-2" variant="plain">
+        <v-btn flat to="/cronograma" class="ml-2" variant="plain" >
           <span>CRONOGRAMA</span>
         </v-btn>
         <v-btn flat href="https://web.dicyt.umss.edu.bo/" class="ml-2" variant="plain">
@@ -81,7 +91,7 @@ export default {
 
 
 
-        <v-btn flat href="http://bibliotecas.umss.edu.bo/site/php/index.php" class="ml-2" variant="plain">
+        <v-btn flat href="http://bibliotecas.umss.edu.bo/site/php/index.php" class="ml-2" variant="plain" >
           <span>BIBLIOTECA</span>
         </v-btn>
         <v-btn flat href="https://www.umss.edu.bo/tiempo-universitario/" class="ml-2" variant="plain">
@@ -93,7 +103,7 @@ export default {
             open-on-hover
         >
           <template v-slot:activator="{ props }">
-            <v-icon>mdi-account</v-icon>
+            <v-icon >mdi-account</v-icon>
             <v-btn
                 color="grey"
                 v-bind="props"

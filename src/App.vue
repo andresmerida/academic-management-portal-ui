@@ -21,6 +21,7 @@ const fondo = blue;
         <RouterView />
       </v-layout>
     </v-parallax>
+    <v-footer>Copyright © 2023 </v-footer>
   </v-app>
 </template>
 

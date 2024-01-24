@@ -1,5 +1,4 @@
 <script>
-import TheWelcome from '../components/TheWelcome.vue'
 import imgUmss from '@/img/umss.jpg'
 import imgFcyt from '@/img/fcyt3.jpg'
 import imgGestion from '@/img/img_gestion.png'
@@ -58,7 +57,7 @@ export default {
             <v-card
                 class="mx-1"
                 max-width="380"
-                min-height="200"
+                min-height="260"
                 variant="elevated"
             >
               <v-card-item>
@@ -69,7 +68,7 @@ export default {
                   <div class="text-subtitle-1 mb-1 font-weight-bold text-center mt-5">
                     {{ title_item.title }}
                   </div>
-                  <div class="text-caption mx-5 text-justify">{{ title_item.text }}</div>
+                  <div class="mx-5 text-justify">{{ title_item.text }}</div>
                 </div>
               </v-card-item>
             </v-card>
